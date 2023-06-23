@@ -1,0 +1,29 @@
+<!-- Login -->
+
+<section>
+    <h4 class="d-flex justify-content-center ">Registrate para visualizar mas contenido</h4>
+    <div class=" pt-5 container d-flex justify-content-center mb-xxl-5">
+        <form class="border border-dark p-4" (submit)="ingresoUsuario()">
+            <div class="mb-3">
+                <label for="correo_electronico" class="form-label">Correo electrónico</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    [(ngModel)]="user.correo" [ngModelOptions]="{standalone : true}" required="">
+                <div id="emailHelp" class="form-text">Nunca compartiremos su correo electrónico con nadie más.</div>
+            </div>
+            <div class="mb-3">
+                <label for="contrasena" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" [(ngModel)]="user.password"
+                    [ngModelOptions]="{standalone : true}" required="">
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Recuerdame</label>
+            </div>
+            <button class="button type1">
+                <span class="btn-txt">Iniciar</span>
+            </button>
+        </form>
+    </div>
+</section>
+
+<!-- Fin Login -->

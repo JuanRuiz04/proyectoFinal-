@@ -1,0 +1,57 @@
+
+<!-- Contacto -->
+
+
+<section>
+    <div class="container-fluid">
+        <h1 class="pt-xxl-5 d-flex justify-content-center">Studio Luciana Biondi</h1>
+        <h3 class="pt-xxl-5 d-flex justify-content-center">- Estética & Confort -</h3>
+        <p></p>
+        <h5 class="pt-xxl-5 d-flex justify-content-center text-md-center">Estudio de diseño de interiores, especializado
+            en la asesoría y diseño de proyectos residenciales y de oficina, así como, asesoría en decoración y personal
+            shopper.</h5>
+        <h2 class="pt-xxl-5 d-flex justify-content-center "> Contáctame</h2>
+        <p class=" pt-xxl-5 d-flex justify-content-center"> ¿Te interesa trabajar conmigo? Contáctame hoy mismo y
+            permíteme hacer realidad el diseño de interiores que siempre has soñado.</p>
+        <p class="d-flex justify-content-center ">Bogotá, Colombia</p>
+        <p class="d-flex justify-content-center ">di.lucianabiondi@gmail.com</p>
+        <p class="d-flex justify-content-center ">Cel. +57 322 348 9442</p>
+
+
+    </div>
+
+    <section>
+        <p class="pt-3"></p>
+        <h1 class="text-center pt-2 pb-lg-5" >Dejanos tus datos y pronto estaremos haciendo un proyecto juntos</h1>
+        <form class="container  justify-content-center" [formGroup]="contactoForm" (ngSubmit)="crear_data_contacto()">
+            <div class="mb-3 ">
+              <label for="nombre_usuario" class="form-label ">Nombre Completo*</label>
+              <input type="text" class="form-control" id="nombre_usuario" aria-describedby="emailHelp" formControlName="nombre">
+              <div class="text-danger fw-bold form-text" *ngIf="contactoForm.get('nombre')?.hasError('required') && contactoForm.get('nombre')?.touched">Nombre y apellido es obligatorio</div>
+              <div class="text-danger fw-bold form-text" *ngIf="contactoForm.get('nombre')?.hasError('minlength') && contactoForm.get('nombre')?.touched">El nombre y apellido debe contener como mínimo 3 caracteres</div>
+            </div>
+            <div class="mb-3">
+                <label for="correo_usuario" class="form-label">Correo electrónico*</label>
+                <input type="email" class="form-control" id="correo_usuario" aria-describedby="emailHelp" formControlName="correo">
+                <div  class="form-text">Nunca compartiremos su correo electrónico con nadie más.</div>
+                <div class="text-danger fw-bold form-text" *ngIf="contactoForm.get('correo')?.hasError('required') && contactoForm.get('correo')?.touched">El correo es obligatorio</div>
+                <div class="text-danger fw-bold form-text" *ngIf="contactoForm.get('correo')?.hasError('pattern') && contactoForm.get('correo')?.touched">El correo no es valido</div>
+              </div>
+            <div class="mb-3">
+              <label for="numero_usuario" class="form-label">Número de contacto</label>
+              <input type="text" class="form-control" id="exampleInputPassword1" formControlName="telefono">
+              <div class="text-danger fw-bold form-text" *ngIf="contactoForm.get('telefono')?.hasError('pattern') && contactoForm.get('telefono')?.touched">El teléfono contiene caracteres inválidos</div>
+            </div>
+            <div class="mb-3">
+                <label for="mensaje_usuario" class="form-label">Déjanos tu mensaje</label>
+                <input type="text" class="form-control" id="mensaje_usuario" formControlName="mensaje">
+
+              </div>
+              <div class="d-flex justify-content-center pb-5">
+              <button class="button" type="submit" [disabled]="contactoForm.invalid"> Enviar Datos </button>
+            </div>
+          </form>
+    </section>
+</section>
+
+<!-- Fin contacto -->

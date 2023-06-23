@@ -1,0 +1,33 @@
+<section class="container my-5">
+
+    <h1 class="text-center mb-4">Listado de Productos</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Nombre Producto</th>
+                <th scope="col">Referencia de Producto</th>
+                <th scope="col">Especificación de Producto</th>
+                <th scope="col">Cantidades de Producto</th>
+                <th scope="col">Imagen de Producto</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let dataProduc of listaProductos">
+            <tr>
+
+                <td>{{ dataProduc.nombre_de_producto}}</td>
+                <td>{{ dataProduc.referencia_producto}}</td>
+                <td>{{ dataProduc.especificacion_producto}}</td>
+                <td>{{ dataProduc.cantidad_producto}}</td>
+                <td>
+                    <img class="w-25" src="{{ dataProduc.imagen_producto}}" alt="">
+                </td>
+                <td>
+                    <button class="btn btn-warning" [routerLink]="['/editar-producto    proyectolbdesign', dataProduc._id]">Editar</button>
+                    <button class="btn btn-danger" (click)="eliminarProducto(dataProduc._id)">Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</section>

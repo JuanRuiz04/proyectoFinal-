@@ -1,0 +1,38 @@
+<section class="pt-5 container ">
+    <form [formGroup]="lbForms" (ngSubmit)="actualizar_registrar_producto()">
+    <h1 class="d-flex">Registro de Productos</h1>
+    <div class="mb-3 text-center">
+        <label for="nombre_de_producto" class="form-label">Nombre de Producto</label>
+        <input type="text" class="form-control" id="nombre_de_producto" formControlName="nombre_de_producto">
+        <div class="text-danger fw-bold form-text" *ngIf="lbForms.get('nombre_de_producto')?.hasError('required') && lbForms.get('nombre_de_producto')?.touched">El nombre del producto es obligatorio</div>
+        <div class="text-danger fw-bold form-text" *ngIf="lbForms.get('nombre_de_producto')?.hasError('minlength') && lbForms.get('nombre_de_producto')?.touched">El nombre del producto debe contener mínimo 3 caracteres</div>
+
+    </div>
+    <div class="mb-3 text-center">
+        <label for="referencia_producto" class="form-label">Referencia de producto</label>
+        <input type="text" class="form-control" id="referencia_producto" formControlName="referencia_producto">
+        <div class="text-danger fw-bold form-text" *ngIf="lbForms.get('referencia_producto')?.hasError('pattern') && lbForms.get('referencia_producto')?.touched">La referencia del producto es obligatoria</div>
+        <div class="text-danger fw-bold form-text" *ngIf="lbForms.get('referencia_producto')?.hasError('minlength') && lbForms.get('referencia_producto')?.touched">La referencia debe contener mínimo 3 caracteres</div>
+    </div>
+    <div class="mb-3 text-center">
+        <label for="especificacion_producto" class="form-label">Especificaciones de Producto</label>
+        <input type="text" class="form-control" id="especificacion_producto" formControlName="especificacion_producto">
+        <div class="text-danger fw-bold form-text" *ngIf="lbForms.get('especificacion_producto')?.hasError('required') && lbForms.get('especificacion_producto')?.touched">La especificación del producto es obligatoria</div>
+
+    </div>
+    <div class="mb-3 text-center">
+        <label for="cantidad_producto" class="form-label">Cantidades disponibles de producto</label>
+        <input type="text" class="form-control" id="cantidade_producto" formControlName="cantidad_producto">
+        <div class="text-danger fw-bold form-text" *ngIf="lbForms.get('cantidad_producto')?.hasError('pattern') && lbForms.get('cantidad_producto')?.touched">La cantidad contiene caracteres inválidos</div>
+    </div>
+    <div class="mb-3 text-center">
+        <label for="imagen_producto" class="form-label">Imagen de producto</label>
+        <input type="text" class="form-control" id="imagen_producto" formControlName="imagen_producto">
+        <div class="text-danger fw-bold form-text" *ngIf="lbForms.get('imagen_producto')?.hasError('required') && lbForms.get('imagen_producto')?.touched">La imagen del producto es obligatoria </div>
+        <div class="text-danger fw-bold form-text" *ngIf="lbForms.get('imagen_producto')?.hasError('pattern') && lbForms.get('imagen_producto')?.touched">La URL es invalida</div>
+    </div>
+    <div class="pb-5 d-flex justify-content-center">
+        <button type="submit" class="button" [disabled]="lbForms.invalid" routerLink="/registro"> Registra productos</button>
+    </div>
+    </form>
+</section>
